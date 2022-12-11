@@ -8,7 +8,7 @@ numTreesVisible trees = fromIntegral . length . filter (any id) . transpose $ al
         right    = map reverse . view . map reverse  -- Check visibility of all trees from the right.
         up       = transpose . right . transpose     -- Check visibility of all trees from above.
 
--- Number of trees visible from the left.
+-- Visibility of trees from the left.
 view :: [[Integer]] -> [[Bool]]
 view = map $ snd . mapAccumL (\x y -> (max x y, x < y)) (-1)
 
