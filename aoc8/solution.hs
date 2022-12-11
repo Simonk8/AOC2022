@@ -4,9 +4,9 @@ import Data.List (transpose, tails, mapAccumL)
 numTreesVisible :: [[Integer]] -> Integer
 numTreesVisible trees = fromIntegral . length . filter (any id) . transpose $ allViews
   where allViews = (concat .) <$> [view, down, right, up] <*> [trees]
-        down     = transpose . view . transpose      -- Check visibility of all trees from below.
+        down     = transpose . view . transpose      -- Check visibility of all trees from above.
         right    = map reverse . view . map reverse  -- Check visibility of all trees from the right.
-        up       = transpose . right . transpose     -- Check visibility of all trees from above.
+        up       = transpose . right . transpose     -- Check visibility of all trees from below.
 
 -- Visibility of trees from the left.
 view :: [[Integer]] -> [[Bool]]
