@@ -14,7 +14,7 @@ view = map $ snd . mapAccumL (\x y -> (max x y, x < y)) (-1)
 
 -- Read the input from a specified file.
 readInput :: String -> IO [[Integer]]
-readInput path = map (map $ read . (: [])) . lines <$> readFile path :: IO [[Integer]] 
+readInput path = map (map $ read . pure) . lines <$> readFile path :: IO [[Integer]] 
 
 -- Read input and solve.
 solve :: String -> IO ()
