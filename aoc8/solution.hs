@@ -1,4 +1,4 @@
-import Data.List (transpose, tails, mapAccumL)
+import Data.List (transpose, mapAccumL)
 
 -- Number trees visible from the outside of the rectangular forest.
 numTreesVisible :: [[Integer]] -> Integer
