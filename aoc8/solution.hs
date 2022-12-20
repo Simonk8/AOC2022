@@ -15,12 +15,6 @@ view :: [[Integer]] -> [[Bool]]
 view = map $ snd . mapAccumL (\x y -> (max x y, x < y)) (-1)
 
 
-{- ======= Part 2 ======= -}
-
--- score of trees, when looking to the right.
-score :: [[Integer]] -> [[Integer]]
-score = map $ reverse . concat . map (tail . scanl (\a _->a+1) 0) . groupBy (==) . reverse . scanl1 max
-
 {- ======= Tests ======== -}
 
 -- Read the input from a specified file.
